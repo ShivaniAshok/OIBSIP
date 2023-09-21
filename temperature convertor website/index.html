@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Temperature Convertor</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+    body {
+     background-color: black;
+    }
+    .container {
+      position: absolute;
+      left: 35%;
+      margin-top: 50px;
+  background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(208,232,248,1) 19%, rgba(248,248,248,1) 100%);
+      height: 80vh;
+      width: 40vw;
+      border-radius: 5px;
+      color: black;
+    }
+    .container-title {
+      font-size: 10px;
+      background-color: gray;
+      text-align: left;
+      height: 30px;
+    }
+    .container-title h1 {
+      margin-left: 5px;
+      color: white;
+    }
+    .content {
+      margin: 90px auto auto 25px;
+    }
+    .controls {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 30px;
+      /* background-color: red; */
+    }
+    .label {
+      margin-left: -30px;
+    }
+    .label input {
+      height: 50px;
+      width: 400px;
+      border-radius: 7px;
+      margin-left: 10px;
+      border: 2px solid orange;
+    }
+    
+    .buttons {
+      margin-top: 50px;
+      margin-left: 25px;
+    }
+    .btn1,
+    .btn2 {
+      width: 100px;
+      height: 50px;
+      border-radius: 7px;
+    }
+    .btn1 {
+      margin-left: 40px;
+    }
+    .btn2 {
+      margin-left: 100px;
+    }
+    .result {
+      margin-top: 50px;
+      margin-left: 25px;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <div class="container-title">
+        <h1>Temperature Convertor</h1>
+      </div>
+      <div class="content">
+        <p >Enter Temperature:</p>
+      </div>
+      <section class="controls">
+        <div class="label">
+          <input type="text" id="tempval"/>
+        </div>
+      </section>
+
+      <div class="buttons">
+        <button class="btn1">To °F</button>
+        <button class="btn2">To °C</button>
+      </div>
+      <div class="result">
+        <p>The result is: <span id="res"></span></p>
+      </div>
+    </div>
+  </body>
+  <script>
+    let tempInput=document.getElementById("tempval");
+    let res=document.getElementById("res");
+   document.querySelector(".btn1").addEventListener("click",function (){
+    let temp=parseFloat(tempInput.value);
+    let result=32+9/5*(temp);
+      res.textContent=result.toFixed(2)+"°F";
+   });
+   document.querySelector(".btn2").addEventListener("click",function (){
+    let temp=parseFloat(tempInput.value);
+      let result=5/9*(temp-32);
+      res.textContent=result.toFixed(2)+"°C";
+   });
+   
+  </script>
+</html>
